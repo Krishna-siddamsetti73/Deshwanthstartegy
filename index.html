@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deshwanth Perumandla — Full Digital Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0E0E0E;
+  --paper:#F5F2EC;
+  --paper2:#EDE9E0;
+  --cream:#FAF8F3;
+  --gold:#B8860B;
+  --gold2:#D4A017;
+  --rust:#C0392B;
+  --forest:#1B4332;
+  --sky:#1A3A5C;
+  --muted:#7A7468;
+  --border:#D8D2C5;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.65}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--ink);
+  display:flex;align-items:center;gap:0;
+  overflow-x:auto;scrollbar-width:none;
+  border-bottom:3px solid var(--gold);
+}
+nav::-webkit-scrollbar{display:none}
+.nav-brand{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;
+  color:var(--gold);letter-spacing:.05em;
+  padding:.9rem 1.5rem;border-right:1px solid rgba(255,255,255,.1);
+  white-space:nowrap;flex-shrink:0;
+}
+nav a{
+  color:rgba(255,255,255,.55);text-decoration:none;
+  font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:.9rem 1rem;white-space:nowrap;flex-shrink:0;transition:color .2s;
+}
+nav a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{
+  background:var(--ink);
+  padding:5rem 4rem 4.5rem;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'D';
+  position:absolute;right:-2rem;top:-2rem;
+  font-family:'Instrument Serif',serif;font-size:22rem;
+  color:rgba(255,255,255,.03);line-height:1;pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-block;
+  font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--gold);
+  padding:.3rem .9rem;border-radius:2px;margin-bottom:1.5rem;
+}
+.hero h1{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2.8rem,6vw,5.5rem);
+  color:#fff;line-height:1.05;margin-bottom:1rem;
+}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{color:rgba(255,255,255,.5);font-size:1rem;max-width:560px;margin-bottom:2.5rem}
+.hero-pills{display:flex;flex-wrap:wrap;gap:.6rem}
+.pill{
+  font-size:.72rem;font-weight:500;letter-spacing:.05em;
+  padding:.35rem .85rem;border-radius:100px;
+  background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.12);
+}
+.pill.gold{background:rgba(184,134,11,.2);color:var(--gold2);border-color:rgba(184,134,11,.4)}
+
+/* SECTIONS */
+section{padding:4.5rem 4rem;border-bottom:1px solid var(--border)}
+@media(max-width:640px){section{padding:3rem 1.5rem}.hero{padding:3rem 1.5rem}}
+.sec-label{
+  font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.5rem;
+}
+.sec-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  line-height:1.15;margin-bottom:.5rem;
+}
+.sec-desc{color:var(--muted);font-size:.95rem;margin-bottom:2.5rem;max-width:580px}
+
+/* CARDS GRID */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.card{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:4px;padding:1.5rem;
+  border-top:3px solid var(--gold);
+}
+.card-icon{font-size:1.6rem;margin-bottom:.8rem}
+.card h3{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.5rem;letter-spacing:.02em}
+.card p{font-size:.84rem;color:var(--muted);line-height:1.7}
+.card p strong{color:var(--ink)}
+
+/* POSITIONING BOX */
+.position-box{
+  background:var(--ink);color:#fff;
+  border-radius:4px;padding:2rem 2.5rem;
+  margin-bottom:2rem;
+}
+.position-box .label{
+  font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;
+}
+.position-box .statement{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(1.3rem,2.5vw,1.8rem);
+  line-height:1.4;color:#fff;
+}
+.position-box .statement em{color:var(--gold2);font-style:italic}
+
+/* HANDLES TABLE */
+.handles{
+  background:var(--cream);border:1px solid var(--border);border-radius:4px;overflow:hidden;
+}
+.handle-row{
+  display:grid;grid-template-columns:48px 1fr auto;
+  align-items:center;gap:1rem;padding:1rem 1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.handle-row:last-child{border-bottom:none}
+.h-icon{
+  width:40px;height:40px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.h-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
+.h-yt{background:#FF0000}
+.h-li{background:#0077B5}
+.h-fb{background:#1877F2}
+.h-wa{background:#25D366}
+.h-name{font-weight:600;font-size:.88rem}
+.h-bio{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+.h-handle{
+  font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;
+  background:rgba(184,134,11,.1);color:var(--gold);
+  border:1px solid rgba(184,134,11,.25);
+  padding:.25rem .65rem;border-radius:3px;white-space:nowrap;
+}
+
+/* CONTENT NICHE — 3 PILLARS */
+.niche-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem}
+.niche{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:4px;padding:1.5rem;text-align:center;
+}
+.niche .pct{
+  font-family:'Instrument Serif',serif;font-size:3rem;font-weight:400;
+  color:var(--gold);line-height:1;
+}
+.niche .ntitle{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin:.5rem 0 .3rem;letter-spacing:.03em}
+.niche .ndesc{font-size:.78rem;color:var(--muted);line-height:1.6}
+.niche-note{
+  background:rgba(184,134,11,.06);border:1px solid rgba(184,134,11,.2);
+  border-radius:4px;padding:1.2rem 1.5rem;
+  font-size:.85rem;color:var(--ink);line-height:1.75;
+}
+.niche-note strong{color:var(--gold)}
+
+/* COMPETITORS */
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
+.comp{background:var(--cream);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.comp-top{
+  padding:1.1rem 1.4rem;
+  display:flex;align-items:center;gap:.9rem;
+  background:#fff;border-bottom:1px solid var(--border);
+}
+.comp-av{
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;flex-shrink:0;
+}
+.comp-n{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700}
+.comp-h{font-size:.72rem;color:var(--muted)}
+.comp-body{padding:1.2rem 1.4rem}
+.comp-nums{display:flex;gap:.7rem;margin-bottom:.9rem}
+.cnum{
+  flex:1;background:rgba(0,0,0,.03);border:1px solid var(--border);
+  border-radius:3px;padding:.55rem .6rem;text-align:center;
+}
+.cnum .v{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.cnum .k{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.comp-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.9rem}
+.ctag{
+  font-size:.67rem;padding:.2rem .55rem;border-radius:100px;
+  border:1px solid var(--border);color:var(--muted);
+}
+.ctag.g{border-color:rgba(184,134,11,.35);color:var(--gold)}
+.comp-text{font-size:.82rem;color:var(--muted);line-height:1.7}
+.comp-text strong{color:var(--ink)}
+.comp-edge{
+  margin-top:.8rem;padding:.7rem .9rem;
+  background:rgba(27,67,50,.06);border-left:3px solid var(--forest);
+  font-size:.78rem;color:var(--forest);line-height:1.6;
+}
+
+/* COMPETITOR STRATEGY TABLE */
+.strat-table{background:var(--cream);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.5rem}
+.strat-row{
+  display:grid;grid-template-columns:130px 1fr 1fr 1fr;
+  border-bottom:1px solid var(--border);
+  font-size:.78rem;
+}
+.strat-row:last-child{border-bottom:none}
+.strat-row.hdr{
+  background:var(--ink);color:rgba(255,255,255,.6);
+  font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.strat-cell{padding:.75rem 1rem;border-right:1px solid var(--border)}
+.strat-cell:last-child{border-right:none}
+.strat-row:not(.hdr) .strat-cell:first-child{font-weight:600;color:var(--ink)}
+@media(max-width:640px){
+  .strat-row{grid-template-columns:1fr 1fr}
+  .strat-row.hdr .strat-cell:nth-child(3),.strat-row.hdr .strat-cell:nth-child(4),
+  .strat-row:not(.hdr) .strat-cell:nth-child(3),.strat-row:not(.hdr) .strat-cell:nth-child(4){display:none}
+}
+
+/* 30 DAY PLAN */
+.month-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem}
+.wblock{background:var(--cream);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.wblock-head{
+  padding:.9rem 1.3rem;background:var(--ink);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.wblock-head h3{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:#fff}
+.wtheme{font-size:.65rem;color:var(--gold);background:rgba(184,134,11,.15);padding:.2rem .6rem;border-radius:100px}
+.wblock-body{padding:1.1rem 1.3rem}
+.wi{
+  display:flex;align-items:flex-start;gap:.7rem;
+  padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.05);
+  font-size:.81rem;
+}
+.wi:last-child{border-bottom:none}
+.wdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.dr{background:#C0392B}.dp{background:#1A3A5C}.ds{background:var(--gold)}.dl{background:#1B4332}
+.wi-text{color:var(--muted);line-height:1.45}
+.wi-text strong{color:var(--ink)}
+
+/* FREQUENCY */
+.freq-wrap{background:var(--cream);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.5rem}
+.fr{display:grid;grid-template-columns:140px 1fr 110px;align-items:center;gap:1rem;padding:.85rem 1.4rem;border-bottom:1px solid var(--border)}
+.fr:last-child{border-bottom:none}
+.fr.fhdr{
+  background:var(--ink);font-family:'Syne',sans-serif;
+  font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);
+}
+.fr-label{font-size:.85rem;font-weight:500}
+.bar-bg{height:7px;background:rgba(0,0,0,.07);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px}
+.fr-count{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--gold);text-align:right}
+
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem;margin-bottom:1rem}
+@media(max-width:550px){.cal-grid{grid-template-columns:repeat(4,1fr)}}
+.cal-day{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:.7rem .5rem;text-align:center}
+.cal-day .dname{font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.4rem}
+.cal-day .dtasks{display:flex;flex-direction:column;gap:.25rem}
+.tp{font-size:.58rem;padding:.18rem .3rem;border-radius:3px;font-weight:600}
+.t-reel{background:rgba(192,57,43,.1);color:#C0392B;border:1px solid rgba(192,57,43,.2)}
+.t-post{background:rgba(26,58,92,.1);color:#1A3A5C;border:1px solid rgba(26,58,92,.2)}
+.t-story{background:rgba(184,134,11,.1);color:var(--gold);border:1px solid rgba(184,134,11,.2)}
+.t-live{background:rgba(27,67,50,.1);color:var(--forest);border:1px solid rgba(27,67,50,.2)}
+.t-rest{background:rgba(0,0,0,.04);color:var(--muted);border:1px solid var(--border)}
+
+/* OUTCOMES */
+.out-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1rem;margin-bottom:2rem}
+.out-card{
+  background:var(--cream);border:1px solid var(--border);border-radius:4px;
+  padding:1.4rem;text-align:center;
+}
+.out-num{font-family:'Instrument Serif',serif;font-size:2.3rem;color:var(--gold);line-height:1}
+.out-label{font-size:.78rem;font-weight:500;margin:.3rem 0 .2rem}
+.out-note{font-size:.68rem;color:var(--muted)}
+.out-box{
+  background:rgba(184,134,11,.05);border:1px solid rgba(184,134,11,.2);
+  border-radius:4px;padding:1.4rem 1.8rem;
+}
+.out-box h3{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--gold)}
+.out-box p{font-size:.84rem;color:var(--muted);line-height:1.8}
+.out-box p strong{color:var(--ink)}
+
+/* TIMELINE */
+.tline{position:relative;padding-left:2rem}
+.tline::before{
+  content:'';position:absolute;left:0;top:8px;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--gold),transparent);
+}
+.ti{position:relative;padding:0 0 2.2rem 1.5rem}
+.ti-dot{
+  position:absolute;left:-2.28rem;top:5px;
+  width:13px;height:13px;border-radius:50%;
+  border:2px solid var(--gold);background:var(--paper);
+}
+.ti-dot.now{background:var(--gold)}
+.ti-per{
+  font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;
+}
+.ti-title{font-family:'Instrument Serif',serif;font-size:1.2rem;margin-bottom:.3rem}
+.ti-desc{font-size:.84rem;color:var(--muted);line-height:1.7}
+.ti-desc strong{color:var(--ink)}
+
+/* SWOT */
+.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.swot-q{padding:1.8rem 2rem}
+.swot-q h3{
+  font-family:'Syne',sans-serif;font-size:.72rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.swot-q ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.swot-q ul li{font-size:.83rem;line-height:1.5;padding-left:1rem;position:relative}
+.swot-q ul li::before{content:'—';position:absolute;left:0;color:inherit;opacity:.5}
+.sq-s{background:rgba(27,67,50,.05);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sq-s h3{color:var(--forest)}.sq-s li{color:var(--forest)}
+.sq-w{background:rgba(192,57,43,.04);border-bottom:1px solid var(--border)}
+.sq-w h3{color:var(--rust)}.sq-w li{color:var(--rust)}
+.sq-o{background:rgba(26,58,92,.04);border-right:1px solid var(--border)}
+.sq-o h3{color:var(--sky)}.sq-o li{color:var(--sky)}
+.sq-t{background:rgba(184,134,11,.04)}
+.sq-t h3{color:var(--gold)}.sq-t li{color:#8a6200}
+@media(max-width:560px){.swot-grid{grid-template-columns:1fr}}
+
+/* SUMMARY BOX */
+.summary{
+  background:var(--ink);color:#fff;
+  border-radius:4px;padding:2rem 2.5rem;margin-top:2rem;
+}
+.summary h3{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:.8rem}
+.summary p{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.8}
+.summary p strong{color:#fff}
+
+footer{
+  padding:2.5rem 4rem;text-align:center;
+  font-size:.75rem;color:var(--muted);
+  border-top:1px solid var(--border);
+}
+footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Deshwanth · Strategy</div>
+  <a href="#niche">Niche</a>
+  <a href="#handles">Handles</a>
+  <a href="#competitors">Competitors</a>
+  <a href="#strategy">Their Strategy</a>
+  <a href="#month">30-Day Plan</a>
+  <a href="#frequency">Frequency</a>
+  <a href="#outcomes">Outcomes</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#swot">SWOT</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Digital Strategy · Hyderabad · 2026</div>
+  <h1>Deshwanth<br><em>Perumandla</em></h1>
+  <p class="hero-sub">Complete influencer brand strategy — Personal Development + Real Estate + Mindset. Starting from absolute zero. Built to compete in 6 months.</p>
+  <div class="hero-pills">
+    <span class="pill gold">Starting from Scratch</span>
+    <span class="pill">Personal Development</span>
+    <span class="pill">Real Estate Education</span>
+    <span class="pill">Mindset & Growth</span>
+    <span class="pill">Hyderabad · Telugu + English</span>
+    <span class="pill">T HOMES · ODMT</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: POSITIONING ─── -->
+<section id="niche">
+  <div class="sec-label">Section 01 — Who He Is & His Niche</div>
+  <h2 class="sec-title">Starting Position & Brand Identity</h2>
+  <p class="sec-desc">Before creating a single post, we lock in his identity — what he stands for, who he speaks to, and what makes him impossible to ignore.</p>
+
+  <div class="position-box" style="margin-bottom:1.5rem">
+    <div class="label">Brand Positioning Statement</div>
+    <div class="statement">"I help young Indians <em>grow their mind, grow their money,</em> and build a life worth living — through real estate, personal development, and the mindset to make it happen."</div>
+  </div>
+
+  <div class="cards" style="margin-bottom:1.5rem">
+    <div class="card">
+      <div class="card-icon">🧑‍💼</div>
+      <h3>Who He Is Today</h3>
+      <p>Real estate professional at <strong>T HOMES, Hyderabad</strong>. Motivational speaker (YouTube: T HOMES Inspired Words). Digital marketing trainee at ODMT. <strong>LinkedIn: 410+ followers</strong> — his only existing footprint. Everything else: zero.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>His Unfair Advantage</h3>
+      <p>He's <strong>both a real estate professional AND a motivational speaker</strong>. That's rare. Most agents can't inspire. Most speakers don't sell property. He can be the <strong>"Gary Vee of Hyderabad Real Estate"</strong> — nobody owns this lane yet.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>Target Audience</h3>
+      <p><strong>Primary:</strong> 22–35 year old Telugu/Hindi speaking professionals in Hyderabad — IT employees, first-time buyers, young investors. <strong>Secondary:</strong> NRIs from Hyderabad, aspiring real estate professionals, personal growth seekers.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <h3>Digital Goal</h3>
+      <p>Build a <strong>personal brand as an influencer-coach</strong> — not just a real estate agent. Content = 40% personal development, 35% real estate education, 25% mindset. The channel is HIM, not just his listings.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT NICHE SPLIT -->
+  <div id="content-mix"></div>
+  <div class="sec-label" style="margin-top:1rem">Content Architecture — The 3-Pillar Model</div>
+  <div class="niche-grid" style="margin-top:.8rem">
+    <div class="niche">
+      <div class="pct">40%</div>
+      <div class="ntitle">🧠 Personal Development</div>
+      <div class="ndesc">Discipline, goal setting, morning routines, book summaries, career growth, confidence, success habits. This builds the widest audience and maximum virality.</div>
+    </div>
+    <div class="niche">
+      <div class="pct">35%</div>
+      <div class="ntitle">🏠 Real Estate Education</div>
+      <div class="ndesc">Hyderabad market insights, how to buy your first flat, RERA explained, area spotlights, investment ROI, home loan tips. This builds authority and generates leads.</div>
+    </div>
+    <div class="niche">
+      <div class="pct">25%</div>
+      <div class="ntitle">💭 Mindset & Money</div>
+      <div class="ndesc">Why people stay poor, renting vs buying psychology, fear of investing, wealth mindset, financial freedom stories. This is the bridge between pillar 1 and pillar 2 — uniquely his.</div>
+    </div>
+  </div>
+  <div class="niche-note">
+    <strong>Why this mix works:</strong> Personal development content gets <strong>mass reach</strong> (everyone wants to grow). Real estate content gets <strong>trust and leads</strong>. Mindset+Money bridges both and creates his <strong>unique content identity</strong> that no competitor in Hyderabad has. He's not just a real estate page. He's not just a motivational speaker. He's the guy who helps you build the life AND the asset.
+  </div>
+</section>
+
+<!-- ─── SECTION 2: HANDLES ─── -->
+<section id="handles">
+  <div class="sec-label">Section 02 — Social Media Setup</div>
+  <h2 class="sec-title">All Handles & Bios — Start From Scratch</h2>
+  <p class="sec-desc">Consistent username. Professional bio. Optimised from Day 1. Set these up before posting anything.</p>
+
+  <div class="handles">
+    <div class="handle-row">
+      <div class="h-icon h-ig">📸</div>
+      <div>
+        <div class="h-name">Instagram — PRIMARY PLATFORM</div>
+        <div class="h-bio">Bio: 🧠 Mindset · 🏠 Real Estate · 💰 Growth | Hyderabad | T HOMES | Helping you grow personally & financially 📲 DM "START" to begin your journey</div>
+      </div>
+      <div class="h-handle">@deshwanth.p</div>
+    </div>
+    <div class="handle-row">
+      <div class="h-icon h-yt">▶</div>
+      <div>
+        <div class="h-name">YouTube — LONG FORM</div>
+        <div class="h-bio">Weekly videos: Hyderabad property tours, personal development deep-dives, mindset vlogs, real estate investment guides in Telugu + English. Start Month 2.</div>
+      </div>
+      <div class="h-handle">Deshwanth Perumandla</div>
+    </div>
+    <div class="handle-row">
+      <div class="h-icon h-li">in</div>
+      <div>
+        <div class="h-name">LinkedIn — ALREADY ACTIVE (410+ followers)</div>
+        <div class="h-bio">Headline: Real Estate Advisor & Personal Growth Coach | T HOMES Hyderabad | Helping Professionals Build Wealth Through Property. Post 3x/week — B2B angle.</div>
+      </div>
+      <div class="h-handle">linkedin.com/in/deshwanth</div>
+    </div>
+    <div class="handle-row">
+      <div class="h-icon h-fb">f</div>
+      <div>
+        <div class="h-name">Facebook Page — SECONDARY</div>
+        <div class="h-bio">For 30–50 age demographic. Repurpose Instagram content. Key for older Hyderabad buyers and NRI audiences. Start Month 2.</div>
+      </div>
+      <div class="h-handle">Deshwanth Perumandla Official</div>
+    </div>
+    <div class="handle-row">
+      <div class="h-icon h-wa">💬</div>
+      <div>
+        <div class="h-name">WhatsApp Channel — LEAD NURTURE</div>
+        <div class="h-bio">Weekly: 1 personal growth tip + 1 Hyderabad market update + 1 property deal spotlight. Most powerful warm-lead tool in India. Launch Week 2.</div>
+      </div>
+      <div class="h-handle">Deshwanth | Grow & Invest HYD</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 3: COMPETITORS ─── -->
+<section id="competitors">
+  <div class="sec-label">Section 03 — Competition Analysis</div>
+  <h2 class="sec-title">Who He'll Be Competing With</h2>
+  <p class="sec-desc">Since his channel is a mix of personal development + real estate, his competitors come from both spaces. Study them. Beat them by being more human.</p>
+
+  <div class="comp-grid">
+
+    <div class="comp">
+      <div class="comp-top">
+        <div class="comp-av" style="background:linear-gradient(135deg,#833ab4,#fd1d1d)">RK</div>
+        <div>
+          <div class="comp-n">RK Properties</div>
+          <div class="comp-h">@rkproperty · Instagram + YouTube · Hyderabad</div>
+        </div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-nums">
+          <div class="cnum"><div class="v">112K</div><div class="k">IG Followers</div></div>
+          <div class="cnum"><div class="v">2,700+</div><div class="k">Posts</div></div>
+          <div class="cnum"><div class="v">Daily</div><div class="k">Frequency</div></div>
+        </div>
+        <div class="comp-tags">
+          <span class="ctag g">Property Tours</span>
+          <span class="ctag">Telugu Videos</span>
+          <span class="ctag">Listings</span>
+          <span class="ctag">YouTube Strong</span>
+        </div>
+        <p class="comp-text"><strong>What they do:</strong> Daily property listing videos, walk-throughs of flats, villas, plots. Pure volume. High consistency. YouTube is their main strength.<br><strong>Weakness:</strong> Zero personal brand. No face, no story, no education. Feels like a commercial channel. Zero personal development content.</p>
+        <div class="comp-edge">✅ Deshwanth's edge: He has a face, a story, and a personality. RK is a page. Deshwanth is a person. People follow people, not pages.</div>
+      </div>
+    </div>
+
+    <div class="comp">
+      <div class="comp-top">
+        <div class="comp-av" style="background:linear-gradient(135deg,#1a3a5c,#2196F3)">HRE</div>
+        <div>
+          <div class="comp-n">Hyd Real Estate Official</div>
+          <div class="comp-h">@hydrealestateofficial · Instagram</div>
+        </div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-nums">
+          <div class="cnum"><div class="v">37K</div><div class="k">IG Followers</div></div>
+          <div class="cnum"><div class="v">1,888</div><div class="k">Posts</div></div>
+          <div class="cnum"><div class="v">Daily</div><div class="k">Frequency</div></div>
+        </div>
+        <div class="comp-tags">
+          <span class="ctag g">Plots & Villas</span>
+          <span class="ctag">ROI Deals</span>
+          <span class="ctag">Promotions</span>
+          <span class="ctag">Lead Gen</span>
+        </div>
+        <p class="comp-text"><strong>What they do:</strong> Listings with price, area, contact. High volume of promotional carousels. Builder-paid promotions. Looks like a classified ads board.<br><strong>Weakness:</strong> No education, no trust-building, no emotional connection. Zero personal development angle. Pure sell-mode.</p>
+        <div class="comp-edge">✅ Deshwanth's edge: He educates before he sells. That builds 10x more trust. And he adds personal growth content that creates loyal followers, not just buyers.</div>
+      </div>
+    </div>
+
+    <div class="comp">
+      <div class="comp-top">
+        <div class="comp-av" style="background:linear-gradient(135deg,#1B4332,#52C97A)">AM</div>
+        <div>
+          <div class="comp-n">Dr. Amol Mourya</div>
+          <div class="comp-h">Asia's Real Estate Coach · YouTube + Instagram</div>
+        </div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-nums">
+          <div class="cnum"><div class="v">152K+</div><div class="k">YT Subs</div></div>
+          <div class="cnum"><div class="v">29+</div><div class="k">Countries</div></div>
+          <div class="cnum"><div class="v">Weekly</div><div class="k">Frequency</div></div>
+        </div>
+        <div class="comp-tags">
+          <span class="ctag g">RE Coaching</span>
+          <span class="ctag">Books</span>
+          <span class="ctag">CEO Interviews</span>
+          <span class="ctag">Training Programs</span>
+        </div>
+        <p class="comp-text"><strong>What they do:</strong> Long-form education videos on real estate strategy, coaching programs, investor mindset. PhD-backed credibility. High-quality production.<br><strong>Weakness:</strong> National/global scale — not locally Hyderabad. No Telugu content. Not relatable to 25-year-old IT employee in Madhapur.</p>
+        <div class="comp-edge">✅ Deshwanth's edge: Local. Telugu. Relatable. He can own Hyderabad before Amol even notices the city. Hyper-local beats global for lead generation.</div>
+      </div>
+    </div>
+
+    <div class="comp">
+      <div class="comp-top">
+        <div class="comp-av" style="background:linear-gradient(135deg,#4a0e8f,#9c27b0)">BV</div>
+        <div>
+          <div class="comp-n">BV Pattabhiram / Telugu PD Creators</div>
+          <div class="comp-h">Personal Development · Telugu YouTube/Instagram</div>
+        </div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-nums">
+          <div class="cnum"><div class="v">50K–</div><div class="k">500K</div></div>
+          <div class="cnum"><div class="v">Telugu</div><div class="k">Language</div></div>
+          <div class="cnum"><div class="v">Weekly</div><div class="k">Frequency</div></div>
+        </div>
+        <div class="comp-tags">
+          <span class="ctag g">Self Help Telugu</span>
+          <span class="ctag">Book Summaries</span>
+          <span class="ctag">Motivation</span>
+          <span class="ctag">Success Stories</span>
+        </div>
+        <p class="comp-text"><strong>What they do:</strong> Telugu-language personal development — book summaries, success principles, motivation, mindset. Strong loyal audience. Pure personal development, no real estate.<br><strong>Weakness:</strong> No financial/investment angle. No real estate. No actionable wealth-building path.</p>
+        <div class="comp-edge">✅ Deshwanth's edge: He can add the MONEY + PROPERTY layer to personal development — giving Telugu PD audience something nobody else offers them. "Grow your mind AND your portfolio."</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 4: THEIR STRATEGY ─── -->
+<section id="strategy">
+  <div class="sec-label">Section 04 — Competitor Content Strategy Breakdown</div>
+  <h2 class="sec-title">How Competitors Build Their Social Media</h2>
+  <p class="sec-desc">A direct comparison of how the top players structure their content, posting, and presence — so we can learn, adapt, and beat them.</p>
+
+  <div class="strat-table">
+    <div class="strat-row hdr">
+      <div class="strat-cell">Competitor</div>
+      <div class="strat-cell">Content Strategy</div>
+      <div class="strat-cell">Social Media Structure</div>
+      <div class="strat-cell">Their Weakness</div>
+    </div>
+    <div class="strat-row">
+      <div class="strat-cell">RK Properties</div>
+      <div class="strat-cell">Volume play — daily listing videos, property walk-throughs, area-wise price updates. Telugu voiceover. YouTube-first, Instagram secondary.</div>
+      <div class="strat-cell">Grid: all property images. Highlights: by area (Gachibowli, Kokapet etc). No Stories engagement. YouTube: long walk-through videos 10–20 mins.</div>
+      <div class="strat-cell">No face, no personal story, no education. Just a listings board. Zero personal development. Feels commercial, not trustworthy.</div>
+    </div>
+    <div class="strat-row">
+      <div class="strat-cell">Hyd RE Official</div>
+      <div class="strat-cell">High frequency Instagram posting of promotional listings. Paid builder ads. Carousel posts with property specs, price, location. Call to action every post.</div>
+      <div class="strat-cell">Grid: colourful listing carousels. Stories: daily property alerts. No reels engagement. No YouTube. No LinkedIn. Single-platform dependent.</div>
+      <div class="strat-cell">Looks like a classified ads page. No trust, no education, no personality. High volume but low quality engagement. Audience doesn't know who is behind it.</div>
+    </div>
+    <div class="strat-row">
+      <div class="strat-cell">Dr. Amol Mourya</div>
+      <div class="strat-cell">Education-first. Long YouTube videos on investment strategy, coaching programs, CEO interviews. Builds authority through knowledge depth. National audience.</div>
+      <div class="strat-cell">YouTube: primary. Instagram: repurposed clips. LinkedIn: thought leadership. Website + courses + books. Multi-platform with YouTube as hub. High production quality.</div>
+      <div class="strat-cell">Not local. Not in Telugu. Expensive positioning (coaching programs). Not relatable to first-time buyer with ₹50L budget in Hyderabad's suburbs.</div>
+    </div>
+    <div class="strat-row">
+      <div class="strat-cell">Telugu PD Creators</div>
+      <div class="strat-cell">Emotional, story-driven personal development in Telugu. Book summaries, success stories, motivational speeches. Community-building through relatability.</div>
+      <div class="strat-cell">YouTube: primary. Instagram: quote graphics + reels. Strong community via comments. WhatsApp groups. Loyal, passionate fan base. Consistent visual theme.</div>
+      <div class="strat-cell">No wealth/investment angle. No real estate. Audience grows personally but has no financial guidance. Missing the "what do I do with this mindset?" answer.</div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card" style="border-top-color:var(--forest)">
+      <div class="card-icon">📐</div>
+      <h3>How RK Properties Builds Their Grid</h3>
+      <p>Clean, area-by-area organisation. Every post is a listing. Highlight bubbles by location: Gachibowli, Kokapet, Shamshabad. Professional but robotic. <strong>No personal element anywhere.</strong></p>
+    </div>
+    <div class="card" style="border-top-color:var(--rust)">
+      <div class="card-icon">📊</div>
+      <h3>How HRE Official Builds Their Presence</h3>
+      <p>Volume over quality. Bright colourful carousels every day. Stories = property alerts. <strong>Zero engagement with audience.</strong> One-way broadcasting. High follower count, low trust.</p>
+    </div>
+    <div class="card" style="border-top-color:var(--sky)">
+      <div class="card-icon">🎓</div>
+      <h3>How Dr. Amol Mourya Builds Authority</h3>
+      <p>Education pyramid: YouTube long-form → Instagram clips → LinkedIn articles → Books → Courses. <strong>Knowledge = credibility = premium pricing.</strong> Very structured, high production.</p>
+    </div>
+    <div class="card" style="border-top-color:#9c27b0">
+      <div class="card-icon">❤️</div>
+      <h3>How Telugu PD Creators Build Community</h3>
+      <p>Emotional storytelling + consistency. Quote reels, voice-over videos, personal stories. <strong>Comments section is a community.</strong> WhatsApp groups for deeper connection. Loyalty-first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 5: 30 DAY PLAN ─── -->
+<section id="month">
+  <div class="sec-label">Section 05 — Execution Plan</div>
+  <h2 class="sec-title">30-Day Content Roadmap</h2>
+  <p class="sec-desc">Day by day. Week by week. Each week has a theme. Every post has a purpose. 40% personal dev + 35% real estate + 25% mindset+money.</p>
+
+  <div class="month-grid">
+    <div class="wblock">
+      <div class="wblock-head"><h3>Week 1 · Days 1–7</h3><span class="wtheme">🏗️ Establish</span></div>
+      <div class="wblock-body">
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 1:</strong> Introduction post — "Who is Deshwanth?" Face, story, mission. Why personal growth + real estate. Pin to profile. Both English + Telugu caption.</div></div>
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 2:</strong> Reel — Personal Dev — "5 habits that changed my life" — fast-cut, text overlay, trending audio. This will get reach from non-RE audience.</div></div>
+        <div class="wi"><div class="wdot ds"></div><div class="wi-text"><strong>Day 3–4:</strong> Stories — Poll: "Renting or buying?" + Q&A box: "What's stopping you from growing?" — two angles in two days.</div></div>
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 5:</strong> Reel — Real Estate — "3 things no one tells you before buying a flat in Hyderabad" — hook-driven, local relevance.</div></div>
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 6:</strong> Carousel — Mindset — "Why most people never invest — and regret it at 40." Emotional + data-backed.</div></div>
+        <div class="wi"><div class="wdot ds"></div><div class="wi-text"><strong>Day 7:</strong> Story recap + "What did you want to see this week?" Audience feedback, build habit of checking stories daily.</div></div>
+      </div>
+    </div>
+
+    <div class="wblock">
+      <div class="wblock-head"><h3>Week 2 · Days 8–14</h3><span class="wtheme">📚 Educate</span></div>
+      <div class="wblock-body">
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 8:</strong> Reel — Personal Dev — "I read 20 books on success. Here's what actually works." Summary format, text-on-screen, very shareable.</div></div>
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 9:</strong> Post — Real Estate Education — "What is RERA? Why it's your protection as a buyer in Hyderabad." Carousel, 7 slides.</div></div>
+        <div class="wi"><div class="wdot ds"></div><div class="wi-text"><strong>Day 10–11:</strong> Daily stories — Real estate tip of the day + personal dev quote. Keep both pillars alive even on off-posting days.</div></div>
+        <div class="wi"><div class="wdot dl"></div><div class="wi-text"><strong>Day 12:</strong> First Instagram Live — "Ask me anything — personal growth & Hyderabad real estate." 20–30 mins. Announce 48 hours before.</div></div>
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 13:</strong> Reel — Mindset+Money — "The salary trap: how an IT employee earning ₹1.5L/month is still broke." Hit home.</div></div>
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 14:</strong> Launch WhatsApp Channel — announce on Instagram story + post. First broadcast: weekly growth tip + Hyderabad market update.</div></div>
+      </div>
+    </div>
+
+    <div class="wblock">
+      <div class="wblock-head"><h3>Week 3 · Days 15–21</h3><span class="wtheme">🎤 Authority</span></div>
+      <div class="wblock-body">
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 15:</strong> Reel — Talking head — "My honest take on Hyderabad real estate in 2026." Bold opinion. Polarising. Will drive comments.</div></div>
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 16:</strong> Carousel — Personal Dev — "Atomic Habits for real estate investors." Combining the James Clear framework with property investment habits.</div></div>
+        <div class="wi"><div class="wdot ds"></div><div class="wi-text"><strong>Day 17–18:</strong> Stories — Behind the scenes — T HOMES site visit. "A day in my life." Authentic, raw, no filter. Show the work.</div></div>
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 19:</strong> Reel — Real Estate — "I visited 5 flats under ₹60L in Hyderabad — honest review." Reality content converts.</div></div>
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 20:</strong> Carousel — Area spotlight — "Gachibowli vs Miyapur vs Kokapet — which is best for a 28-year-old IT professional?"</div></div>
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 21:</strong> Personal story reel — "Why I chose real estate over a 9-to-5 corporate job." Emotional, authentic. This is the most-shared content type.</div></div>
+      </div>
+    </div>
+
+    <div class="wblock">
+      <div class="wblock-head"><h3>Week 4 · Days 22–30</h3><span class="wtheme">🚀 Scale</span></div>
+      <div class="wblock-body">
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 22:</strong> Reel — Personal Dev trending audio — ride a viral Telugu audio with a personal growth/money message. Maximum reach play.</div></div>
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 23:</strong> Collab content — Interview a young Hyderabad professional who bought their first flat under 30. Real story. Relatable. Social proof.</div></div>
+        <div class="wi"><div class="wdot ds"></div><div class="wi-text"><strong>Day 24–25:</strong> Stories — "This or That" interactive series: Flat or Villa? HITEC City or Kokapet? Save or Invest? Pure engagement play.</div></div>
+        <div class="wi"><div class="wdot dr"></div><div class="wi-text"><strong>Day 26:</strong> Reel — Mindset+Money — "What ₹10L invested in Hyderabad real estate in 2020 looks like today." Data-driven, jaw-dropping.</div></div>
+        <div class="wi"><div class="wdot dl"></div><div class="wi-text"><strong>Day 28:</strong> Second Live — "Month 1 wrap — your growth & property questions answered." Invite a builder or CA as guest for extra credibility.</div></div>
+        <div class="wi"><div class="wdot dp"></div><div class="wi-text"><strong>Day 30:</strong> Milestone post — Thank followers, share Month 1 stats, tease Month 2 — "We're just getting started. Here's what's coming."</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 6: FREQUENCY ─── -->
+<section id="frequency">
+  <div class="sec-label">Section 06 — Posting Frequency</div>
+  <h2 class="sec-title">How Often to Post — by Platform & Type</h2>
+  <p class="sec-desc">Consistency over perfection. This is the sustainable, growth-optimised schedule for Month 1.</p>
+
+  <div class="freq-wrap">
+    <div class="fr fhdr">
+      <div>Content Type</div>
+      <div>Weekly Volume</div>
+      <div>Monthly Total</div>
+    </div>
+    <div class="fr">
+      <div class="fr-label">🎬 Reels (Instagram)</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:85%;background:linear-gradient(90deg,#C0392B,#E57373)"></div></div>
+      <div class="fr-count">3–4/wk · 14/mo</div>
+    </div>
+    <div class="fr">
+      <div class="fr-label">📸 Feed Posts / Carousels</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#1A3A5C,#5288C0)"></div></div>
+      <div class="fr-count">2/wk · 8/mo</div>
+    </div>
+    <div class="fr">
+      <div class="fr-label">📱 Stories (Instagram)</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#B8860B,#D4A017)"></div></div>
+      <div class="fr-count">Daily · 5–7 frames</div>
+    </div>
+    <div class="fr">
+      <div class="fr-label">🔴 Instagram Lives</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#1B4332,#52C97A)"></div></div>
+      <div class="fr-count">2/month</div>
+    </div>
+    <div class="fr">
+      <div class="fr-label">in LinkedIn Posts</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:45%;background:linear-gradient(90deg,#0077B5,#29ABE2)"></div></div>
+      <div class="fr-count">3/wk · 12/mo</div>
+    </div>
+    <div class="fr">
+      <div class="fr-label">💬 WhatsApp Broadcast</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:25%;background:linear-gradient(90deg,#25D366,#60E890)"></div></div>
+      <div class="fr-count">1–2/wk · 6/mo</div>
+    </div>
+  </div>
+
+  <div class="cal-grid">
+    <div class="cal-day"><div class="dname">Mon</div><div class="dtasks"><span class="tp t-reel">Reel</span><span class="tp t-story">Story</span></div></div>
+    <div class="cal-day"><div class="dname">Tue</div><div class="dtasks"><span class="tp t-post">Post</span><span class="tp t-story">Story</span></div></div>
+    <div class="cal-day"><div class="dname">Wed</div><div class="dtasks"><span class="tp t-reel">Reel</span><span class="tp t-story">Story</span></div></div>
+    <div class="cal-day"><div class="dname">Thu</div><div class="dtasks"><span class="tp t-post">Post</span><span class="tp t-story">Story</span></div></div>
+    <div class="cal-day"><div class="dname">Fri</div><div class="dtasks"><span class="tp t-reel">Reel</span><span class="tp t-story">Story</span></div></div>
+    <div class="cal-day"><div class="dname">Sat</div><div class="dtasks"><span class="tp t-reel">Reel</span><span class="tp t-live">Live</span></div></div>
+    <div class="cal-day"><div class="dname">Sun</div><div class="dtasks"><span class="tp t-rest">Plan + Rest</span></div></div>
+  </div>
+
+  <div class="cards" style="margin-top:1.5rem">
+    <div class="card">
+      <div class="card-icon">⏰</div>
+      <h3>Best Posting Times (IST)</h3>
+      <p><strong>Reels:</strong> 7–9 AM or 7–9 PM<br><strong>Feed Posts:</strong> Tue/Thu 8 PM<br><strong>Stories:</strong> 8 AM + 1 PM + 8 PM<br><strong>LinkedIn:</strong> Mon/Wed/Fri 8–9 AM<br><strong>Lives:</strong> Saturday 7–8 PM</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>Language Mix</h3>
+      <p><strong>Reels:</strong> Telugu speaking + English text overlays = maximum Hyderabad reach.<br><strong>Carousels:</strong> English text, Telugu caption.<br><strong>LinkedIn:</strong> Full English.<br><strong>WhatsApp:</strong> Telugu primarily.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎬</div>
+      <h3>Reel Content Split</h3>
+      <p>Of 14 monthly reels:<br><strong>6 reels</strong> = Personal Development<br><strong>5 reels</strong> = Real Estate Education<br><strong>3 reels</strong> = Mindset + Money<br>Rotate so audience gets variety every week.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 7: OUTCOMES ─── -->
+<section id="outcomes">
+  <div class="sec-label">Section 07 — Month 1 Expectations</div>
+  <h2 class="sec-title">Realistic Outcomes After 30 Days</h2>
+  <p class="sec-desc">Based on consistent execution of this plan. Conservative projections — actual numbers depend on content quality and consistency.</p>
+
+  <div class="out-grid">
+    <div class="out-card">
+      <div class="out-num">2K–5K</div>
+      <div class="out-label">Instagram Followers</div>
+      <div class="out-note">If 1–2 reels go viral, could hit 10K</div>
+    </div>
+    <div class="out-card">
+      <div class="out-num">50K+</div>
+      <div class="out-label">Total Reel Reach</div>
+      <div class="out-note">14 reels × avg 3,500 views each</div>
+    </div>
+    <div class="out-card">
+      <div class="out-num">900+</div>
+      <div class="out-label">LinkedIn Connections</div>
+      <div class="out-note">From 410 → 900+ with B2B RE content</div>
+    </div>
+    <div class="out-card">
+      <div class="out-num">10–25</div>
+      <div class="out-label">Direct DM Leads</div>
+      <div class="out-note">Real estate inquiries from content</div>
+    </div>
+    <div class="out-card">
+      <div class="out-num">200+</div>
+      <div class="out-label">WhatsApp Channel</div>
+      <div class="out-note">Subscribers by end of month 1</div>
+    </div>
+    <div class="out-card">
+      <div class="out-num">3–5%</div>
+      <div class="out-label">Engagement Rate</div>
+      <div class="out-note">Industry avg is 1–2%. Aim higher.</div>
+    </div>
+  </div>
+
+  <div class="out-box">
+    <h3>⚠️ 5 Critical Success Factors for Month 1</h3>
+    <p>
+      <strong>1. Face on camera always.</strong> Personal brand = face + voice. No hiding behind text posts or graphics only. His face IS the brand.<br>
+      <strong>2. Telugu + English mix.</strong> Hyderabad audience responds to Telugu spoken content + English text. Don't pick one, do both.<br>
+      <strong>3. Hook in first 2 seconds.</strong> Every reel must open with a bold statement: "This mistake costs Hyderabad buyers ₹15 lakhs." or "I quit my job to sell homes — here's what I know."<br>
+      <strong>4. Engage every comment.</strong> Reply to ALL comments for the first 30 days. Algorithm rewards conversations. Take 20 mins each morning to engage.<br>
+      <strong>5. Real locations + real stories.</strong> Shoot at actual Hyderabad sites — Kokapet, HITEC City, Shankarpally. Hyper-local = hyper-relevant = hyper-trusted.
+    </p>
+  </div>
+</section>
+
+<!-- ─── SECTION 8: TIMELINE ─── -->
+<section id="timeline">
+  <div class="sec-label">Section 08 — Growth Timeline</div>
+  <h2 class="sec-title">How Long to Compete With the Best</h2>
+  <p class="sec-desc">Honest, realistic milestones. Competing with RK Properties (112K) takes time — but Deshwanth can overtake them on trust, engagement, and business long before matching their follower count.</p>
+
+  <div class="tline">
+    <div class="ti">
+      <div class="ti-dot now"></div>
+      <div class="ti-per">Month 1 · Weeks 1–4</div>
+      <div class="ti-title">🌱 Foundation & First Audience</div>
+      <div class="ti-desc">Set up all 5 platforms. Post consistently using this roadmap. Hit <strong>2,000–5,000 Instagram followers</strong>. Launch WhatsApp channel. Get first 10–15 organic leads. Establish voice, aesthetic, and content identity. LinkedIn to 900+.</div>
+    </div>
+    <div class="ti">
+      <div class="ti-dot"></div>
+      <div class="ti-per">Month 2–3 · Weeks 5–12</div>
+      <div class="ti-title">📈 Momentum & Collaborations</div>
+      <div class="ti-desc">5K → <strong>15,000 Instagram followers</strong>. Start YouTube: 1 long-form video/week (property tour + personal story format). Collaborate with Hyderabad CAs, builders, NRI groups. First paid consultation/webinar. Begin collecting Google reviews. <strong>Directly competing with smaller RE pages.</strong></div>
+    </div>
+    <div class="ti">
+      <div class="ti-dot"></div>
+      <div class="ti-per">Month 4–6 · Weeks 13–24</div>
+      <div class="ti-title">🔥 Authority in Hyderabad</div>
+      <div class="ti-desc">15K → <strong>40,000 Instagram followers</strong>. YouTube: 2,000–5,000 subscribers. Media features in local property publications. Known in Hyderabad real estate and personal development circles. <strong>At 40K, he directly competes with @hydrealestateofficial (37K).</strong> Business growing from both commissions and personal brand consulting.</div>
+    </div>
+    <div class="ti">
+      <div class="ti-dot"></div>
+      <div class="ti-per">Month 7–12 · Weeks 25–52</div>
+      <div class="ti-title">👑 Market Leadership</div>
+      <div class="ti-desc">40K → <strong>80,000–100,000+ across platforms</strong>. Hyderabad's recognised personal development + real estate voice. Speaking invitations, builder brand deals, online courses. <strong>At this level he's not competing WITH RK Properties — he's built a completely different category:</strong> personal brand coach vs anonymous listings page. Different game, bigger win.</div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <h3>The Real Answer on Competing</h3>
+    <p>RK Properties (112K followers) has been posting daily for years. <strong>Matching their follower count: 12–18 months</strong> with consistent effort. But here's the truth — a personal brand with <strong>20K highly engaged, local Hyderabad followers</strong> who trust Deshwanth will generate more business than a faceless page with 112K followers. Dr. Amol Mourya's coaching approach: <strong>6–9 months to match influence at a Hyderabad-local level.</strong> Telugu PD creators: <strong>3–4 months to enter their space</strong> with the added real estate advantage they don't have. <strong>The goal is not their follower count. The goal is their business outcome — and Deshwanth can beat that within 6 months.</strong></p>
+  </div>
+</section>
+
+<!-- ─── SECTION 9: SWOT ─── -->
+<section id="swot">
+  <div class="sec-label">Section 09 — Strategy Analysis</div>
+  <h2 class="sec-title">SWOT Analysis of This Strategy</h2>
+  <p class="sec-desc">An honest assessment of the plan — what works in Deshwanth's favour, what can hold him back, and what to watch for.</p>
+
+  <div class="swot-grid">
+    <div class="swot-q sq-s">
+      <h3>💪 Strengths</h3>
+      <ul>
+        <li>Unique dual identity — personal dev + real estate. No one in Hyderabad has this combination.</li>
+        <li>Real-world credibility: T HOMES experience gives authentic real estate authority from Day 1.</li>
+        <li>Motivational speaking background means he's already comfortable on camera — huge advantage for reels.</li>
+        <li>Telugu + English bilingual capability — maximum Hyderabad audience reach.</li>
+        <li>Starting with LinkedIn footprint (410 followers) — not complete zero.</li>
+        <li>ODMT digital marketing training — understands the tools, not learning from scratch.</li>
+      </ul>
+    </div>
+    <div class="swot-q sq-w">
+      <h3>⚠️ Weaknesses</h3>
+      <ul>
+        <li>Zero Instagram/YouTube/Facebook presence — building from absolute scratch takes time before organic momentum kicks in.</li>
+        <li>Content production takes time — if he's full-time at T HOMES, creating 14+ reels/month is demanding.</li>
+        <li>No existing audience to launch with — no base to get early engagement boosts.</li>
+        <li>Personal development space is very crowded nationally — differentiating purely on PD content is hard without the real estate angle.</li>
+        <li>Risk of content identity confusion — audience must quickly understand he is BOTH pillars, not just one.</li>
+      </ul>
+    </div>
+    <div class="swot-q sq-o">
+      <h3>🚀 Opportunities</h3>
+      <ul>
+        <li>Hyderabad real estate market is booming in 2026 — audience is hungry for trusted local guidance.</li>
+        <li>No Telugu-language creator owns the "real estate + personal development" niche — it's completely open.</li>
+        <li>NRI Hyderabad community is a massive untapped segment actively looking for trusted local advisors.</li>
+        <li>WhatsApp channel + Instagram combo is the most powerful lead gen tool in India right now.</li>
+        <li>Personal development content gets organic algorithmic reach that pure real estate content doesn't — growth will be faster.</li>
+        <li>Potential to launch courses, webinars, and consulting as revenue streams within 6 months.</li>
+      </ul>
+    </div>
+    <div class="swot-q sq-t">
+      <h3>🔴 Threats</h3>
+      <ul>
+        <li>Competitors like RK Properties have years of SEO and YouTube watch-time advantage — hard to beat on search.</li>
+        <li>Instagram algorithm changes can hurt organic reach at any time — don't be platform-dependent.</li>
+        <li>Inconsistency is the biggest risk — missing 2 weeks of posting early on can kill momentum permanently.</li>
+        <li>National PD creators (like BV Pattabhiram with 500K+) already have loyal Telugu audiences — competing for their viewers is hard.</li>
+        <li>Real estate market slowdown could reduce content relevance and lead quality from that pillar.</li>
+        <li>Audience confusion risk — if content mix feels too scattered without a clear narrative thread, followers won't stick.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="summary" style="margin-top:1.5rem">
+    <h3>Strategic Verdict</h3>
+    <p>The strategy is <strong>strong and differentiated</strong>. The core insight — combining personal development with real estate in Telugu for a Hyderabad audience — is a genuine gap in the market that nobody owns. The 3-pillar content mix (40% PD + 35% RE + 25% Mindset+Money) creates both <strong>wide reach and deep trust</strong>. The main risk is execution consistency — this strategy only works if Deshwanth posts relentlessly for the first 90 days without dropping off. The <strong>first 30 days are the hardest and most important</strong>. If he executes weeks 1–4 as written, the momentum from month 2 onwards builds on itself. The SWOT shows more opportunity than threat — the window is open right now. <strong>Start today.</strong></p>
+  </div>
+</section>
+
+<footer>Built for <span>Deshwanth Perumandla</span> · Hyderabad · Personal Development + Real Estate Influencer Strategy · June 2026</footer>
+
+</body>
+    </html>
